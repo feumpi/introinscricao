@@ -5,6 +5,7 @@ const Header = () => {
   return (
     <>
       <AppBar
+        position="sticky"
         sx={{
           bgcolor: "primary.dark",
           display: "flex",
