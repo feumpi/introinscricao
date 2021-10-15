@@ -34,15 +34,33 @@ const AboutSection = () => {
       <Container
         sx={{
           display: "grid",
-          gridTemplateColumns: "repeat(6, 1fr)",
-          gridTemplateRows: "auto 100px auto 100px auto",
-          gridTemplateAreas: `
+          gridTemplateColumns: {
+            sm: "1fr",
+            md: "repeat(6, 1fr)",
+          },
+          gridTemplateRows: {
+            sm: "auto auto auto 50px auto auto 50px auto",
+            md: "auto 100px auto 100px auto",
+          },
+          gridTemplateAreas: {
+            sm: `
+            "about1"
+            "about2"
+            "about3"
+            "."
+            "requirements"
+            "schedule"
+            "."
+            "faq"
+            `,
+            md: `
             "about1 about1 about2 about2 about3 about3"
             ". . . . . ."
             "requirements requirements requirements schedule schedule schedule"
             ". . . . . ."
             "faq faq faq faq faq faq"
           `,
+          },
           gridGap: "30px",
           alignItems: "stretch",
           paddingBottom: "200px",
