@@ -32,7 +32,7 @@ const RequirementsCard = () => {
   ];
   return (
     <>
-      <Card>
+      <Card sx={{ height: "100%" }}>
         <CardContent>
           <CardTitle>Para participar, você precisa</CardTitle>
           <RequirementsList requirements={requirements} />

@@ -4,7 +4,7 @@ const AboutCard = ({ title, icon, children }) => {
   const Icon = icon;
   return (
     <>
-      <Card>
+      <Card sx={{ height: "100%" }}>
         <CardContent
           sx={{
             display: "flex",

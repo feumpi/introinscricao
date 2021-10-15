@@ -42,7 +42,7 @@ const ScheduleCard = () => {
 
   return (
     <>
-      <Card sx={{ position: "relative" }}>
+      <Card sx={{ position: "relative", height: "100%" }}>
         <CardContent>
           <CardTitle>Fique de olho no nosso cronograma</CardTitle>
           <ScheduleList schedule={schedule} />
