@@ -61,7 +61,7 @@ const AboutSection = () => {
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gridGap: "30px",
-          padding: "200px 0",
+          paddingY: "100px",
         }}
       >
         <RequirementsCard />
