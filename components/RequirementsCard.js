@@ -32,7 +32,14 @@ const RequirementsCard = () => {
   ];
   return (
     <>
-      <Card sx={{ height: "100%" }}>
+      <Card
+        sx={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
         <CardContent>
           <CardTitle>Para participar, você precisa</CardTitle>
           <RequirementsList requirements={requirements} />

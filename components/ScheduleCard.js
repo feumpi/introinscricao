@@ -42,7 +42,14 @@ const ScheduleCard = () => {
 
   return (
     <>
-      <Card sx={{ position: "relative", height: "100%" }}>
+      <Card
+        sx={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
         <CardContent>
           <CardTitle>Fique de olho no nosso cronograma</CardTitle>
           <ScheduleList schedule={schedule} />
@@ -53,8 +60,6 @@ const ScheduleCard = () => {
           color="secondary"
           sx={{
             width: "100%",
-            position: "absolute",
-            bottom: "0",
             padding: "15px 0",
             borderRadius: "0",
           }}
