@@ -3,7 +3,7 @@ import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 const ScheduleList = ({ schedule }) => {
   return (
     <>
-      <List>
+      <List sx={{ paddingX: "30px" }}>
         {schedule.map((item, index) => {
           const Icon = item.icon;
           return (

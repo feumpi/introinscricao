@@ -11,7 +11,7 @@ const AboutCard = ({ title, icon, children }) => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            padding: "30px 20px",
+            padding: "50px",
           }}
         >
           <Icon color="secondary" sx={{ fontSize: 70 }} />

@@ -3,7 +3,7 @@ import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 const RequirementsList = ({ requirements, invert }) => {
   return (
     <>
-      <List>
+      <List sx={{ paddingX: "30px" }}>
         {requirements.map((requirement, index) => {
           const Icon = requirement.icon;
           return (
