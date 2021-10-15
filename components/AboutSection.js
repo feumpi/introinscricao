@@ -26,6 +26,7 @@ import {
 import AboutCard from "./AboutCard";
 import RequirementsCard from "./RequirementsCard";
 import ScheduleCard from "./ScheduleCard";
+import Faq from "./Faq";
 
 const AboutSection = () => {
   return (
@@ -66,6 +67,10 @@ const AboutSection = () => {
       >
         <RequirementsCard />
         <ScheduleCard />
+      </Container>
+
+      <Container sx={{ paddingBottom: "200px" }}>
+        <Faq />
       </Container>
     </>
   );
