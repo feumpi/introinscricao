@@ -54,6 +54,17 @@ const AboutSection = () => {
           </AboutCard>
         </Box>
       </Container>
+
+      <Container
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gridGap: "30px",
+          padding: "100px 0",
+        }}
+      >
+        <RequirementsCard />
+      </Container>
     </>
   );
 };
