@@ -35,15 +35,15 @@ const AboutSection = () => {
         sx={{
           display: "grid",
           gridTemplateColumns: {
-            sm: "1fr",
+            xs: "1fr",
             md: "repeat(6, 1fr)",
           },
           gridTemplateRows: {
-            sm: "auto auto auto 50px auto auto 50px auto",
+            xs: "auto auto auto 50px auto auto 50px auto",
             md: "auto 100px auto 100px auto",
           },
           gridTemplateAreas: {
-            sm: `
+            xs: `
             "about1"
             "about2"
             "about3"
