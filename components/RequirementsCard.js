@@ -12,9 +12,18 @@ import RequirementsList from "./RequirementsList";
 
 const RequirementsCard = () => {
   const requirements = [
-    { icon: School, text: "Estar matriculado em qualquer ano do ensino médio" },
-    { icon: MoneyOffCsred, text: "Estudar em escola pública" },
-    { icon: Wifi, text: "Ter um computador com acesso à internet" },
+    {
+      icon: School,
+      text: "Estar matriculado em qualquer ano do ensino médio ou técnico integrado",
+    },
+    {
+      icon: MoneyOffCsred,
+      text: "Estudar em escola pública (estadual ou federal)",
+    },
+    {
+      icon: Wifi,
+      text: "Ter um computador (recomendado) ou celular com acesso à internet",
+    },
   ];
 
   const notRequirements = [

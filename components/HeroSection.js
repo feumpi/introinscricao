@@ -29,7 +29,7 @@ const HeroSection = () => {
           >
             <Box>
               <Typography variant="h2" sx={{ textAlign: "center" }}>
-                Curso de programação gratuito para o ensino médio.
+                Curso de programação gratuito para o ensino médio público.
               </Typography>
 
               <Typography
@@ -37,8 +37,8 @@ const HeroSection = () => {
                 component="p"
                 sx={{ textAlign: "center", marginTop: "40px" }}
               >
-                Aprenda a programar com alunos voluntários dos cursos de
-                Engenharia e Computação da Universidade Federal do Espírito
+                Aprenda a programar em Python remotamente com alunos dos cursos
+                de Computação e Engenharias da Universidade Federal do Espírito
                 Santo.
               </Typography>
 

@@ -21,17 +21,17 @@ const ScheduleCard = () => {
     {
       icon: School,
       date: "12 de setembro",
-      text: "Aula expositiva",
+      text: "Aula expositiva para apresentar o curso",
     },
     {
       icon: Quiz,
       date: "19 de setembro",
-      text: "Prova de lógica",
+      text: "Prova de lógica para seleção",
     },
     {
       icon: Description,
       date: "23 de setembro",
-      text: "Matrículas",
+      text: "Matrícula dos aprovados",
     },
     {
       icon: Computer,
