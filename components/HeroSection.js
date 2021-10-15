@@ -37,7 +37,7 @@ const HeroSection = () => {
             },
           }}
         >
-          <Box sx={{ gridArea: "content" }}>
+          <Box sx={{ gridArea: "content", marginX: "30px" }}>
             <Typography variant="h2" sx={{ textAlign: "center" }}>
               Curso de programação gratuito para o ensino médio público.
             </Typography>

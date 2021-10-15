@@ -63,7 +63,10 @@ const AboutSection = () => {
           },
           gridGap: "30px",
           alignItems: "stretch",
-          paddingBottom: "200px",
+          paddingBottom: {
+            xs: "50px",
+            md: "100px",
+          },
         }}
       >
         <Box sx={{ gridArea: "about1" }}>
