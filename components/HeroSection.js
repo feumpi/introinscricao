@@ -17,55 +17,72 @@ const HeroSection = () => {
           maxWidth="xl"
           sx={{
             padding: "0",
-            display: "flex",
-            flexDirection: "column",
+            display: "grid",
+            alignItems: "center",
+            gridTemplateColumns: {
+              xs: "1fr",
+              md: "repeat(4, 1fr)",
+              lg: "repeat(5, 1fr)",
+            },
+            gridTemplateAreas: {
+              xs: `
+                "content"
+              `,
+              md: `
+                "content content art art"
+              `,
+              lg: `
+                "content content content art art"
+              `,
+            },
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <Box>
-              <Typography variant="h2" sx={{ textAlign: "center" }}>
-                Curso de programação gratuito para o ensino médio público.
-              </Typography>
+          <Box sx={{ gridArea: "content" }}>
+            <Typography variant="h2" sx={{ textAlign: "center" }}>
+              Curso de programação gratuito para o ensino médio público.
+            </Typography>
 
-              <Typography
-                variant="h5"
-                component="p"
-                sx={{ textAlign: "center", marginTop: "40px" }}
-              >
-                Aprenda a programar em Python remotamente com alunos dos cursos
-                de Computação e Engenharias da Universidade Federal do Espírito
-                Santo.
-              </Typography>
+            <Typography
+              variant="h5"
+              component="p"
+              sx={{ textAlign: "center", marginTop: "40px" }}
+            >
+              Aprenda a programar em Python remotamente com alunos dos cursos de
+              Computação e Engenharias da Universidade Federal do Espírito
+              Santo.
+            </Typography>
 
-              <Box
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "40px",
+              }}
+            >
+              <Button variant="contained" color="secondary" size="large">
+                Inscreva-se
+              </Button>
+
+              <Button
+                variant="text"
+                size="large"
                 sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  marginTop: "40px",
+                  color: "white",
+                  borderColor: "white",
+                  marginLeft: "20px",
                 }}
               >
-                <Button variant="contained" color="secondary" size="large">
-                  Inscreva-se
-                </Button>
-
-                <Button
-                  variant="text"
-                  size="large"
-                  sx={{
-                    color: "white",
-                    borderColor: "white",
-                    marginLeft: "20px",
-                  }}
-                >
-                  Saiba mais
-                </Button>
-              </Box>
+                Saiba mais
+              </Button>
             </Box>
+          </Box>
+
+          <Box
+            sx={{
+              gridArea: "art",
+              display: { xs: "none", md: "inline-block" },
+            }}
+          >
             <Image
               src="/img/studying.svg"
               width={1000}
