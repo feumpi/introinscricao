@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 
-const RequirementsTitle = ({ children }) => {
+const CardTitle = ({ children }) => {
   return (
     <>
       <Typography
@@ -13,4 +13,4 @@ const RequirementsTitle = ({ children }) => {
   );
 };
 
-export default RequirementsTitle;
+export default CardTitle;

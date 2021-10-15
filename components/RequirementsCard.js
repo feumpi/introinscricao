@@ -7,7 +7,7 @@ import {
 } from "@mui/icons-material";
 import { Card, CardContent, Typography, Button } from "@mui/material";
 
-import RequirementsTitle from "./RequirementsTitle";
+import CardTitle from "./CardTitle";
 import RequirementsList from "./RequirementsList";
 
 const RequirementsCard = () => {
@@ -25,9 +25,9 @@ const RequirementsCard = () => {
     <>
       <Card>
         <CardContent>
-          <RequirementsTitle>Para participar, você precisa</RequirementsTitle>
+          <CardTitle>Para participar, você precisa</CardTitle>
           <RequirementsList requirements={requirements} />
-          <RequirementsTitle>Não é necessário</RequirementsTitle>
+          <CardTitle>Não é necessário</CardTitle>
           <RequirementsList requirements={notRequirements} invert />
         </CardContent>
 

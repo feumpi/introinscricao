@@ -25,6 +25,7 @@ import {
 
 import AboutCard from "./AboutCard";
 import RequirementsCard from "./RequirementsCard";
+import ScheduleCard from "./ScheduleCard";
 
 const AboutSection = () => {
   return (
@@ -60,10 +61,11 @@ const AboutSection = () => {
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gridGap: "30px",
-          padding: "100px 0",
+          padding: "200px 0",
         }}
       >
         <RequirementsCard />
+        <ScheduleCard />
       </Container>
     </>
   );
