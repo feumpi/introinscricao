@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Paper, Container, Box, Typography, Button } from "@mui/material";
 import { useTheme } from "@emotion/react";
@@ -63,17 +64,19 @@ const HeroSection = () => {
                 Inscreva-se
               </Button>
 
-              <Button
-                variant="text"
-                size="large"
-                sx={{
-                  color: "white",
-                  borderColor: "white",
-                  marginLeft: "20px",
-                }}
-              >
-                Saiba mais
-              </Button>
+              <Link href="#about" passHref>
+                <Button
+                  variant="text"
+                  size="large"
+                  sx={{
+                    color: "white",
+                    borderColor: "white",
+                    marginLeft: "20px",
+                  }}
+                >
+                  Saiba mais
+                </Button>
+              </Link>
             </Box>
           </Box>
 

@@ -30,7 +30,7 @@ import Faq from "./Faq";
 
 const AboutSection = () => {
   return (
-    <>
+    <div id="about">
       <Container
         sx={{
           display: "grid",
@@ -67,6 +67,7 @@ const AboutSection = () => {
             xs: "50px",
             md: "100px",
           },
+          paddingTop: "100px",
         }}
       >
         <Box sx={{ gridArea: "about1" }}>
@@ -102,7 +103,7 @@ const AboutSection = () => {
           <Faq />
         </Box>
       </Container>
-    </>
+    </div>
   );
 };
 
