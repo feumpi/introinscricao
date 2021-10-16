@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   School,
   Wifi,
@@ -47,14 +49,16 @@ const RequirementsCard = () => {
           <RequirementsList requirements={notRequirements} invert />
         </CardContent>
 
-        <Button
-          variant="contained"
-          color="secondary"
-          disableElevation
-          sx={{ width: "100%", borderRadius: "0", padding: "15px 0" }}
-        >
-          Leia o edital completo
-        </Button>
+        <a href="/docs/edital.pdf" target="_blank">
+          <Button
+            variant="contained"
+            color="secondary"
+            disableElevation
+            sx={{ width: "100%", borderRadius: "0", padding: "15px 0" }}
+          >
+            Leia o edital completo
+          </Button>
+        </a>
       </Card>
     </>
   );
