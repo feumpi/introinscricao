@@ -60,9 +60,11 @@ const HeroSection = () => {
                 marginTop: "40px",
               }}
             >
-              <Button variant="contained" color="secondary" size="large">
-                Inscreva-se
-              </Button>
+              <Link href="/enroll" passHref>
+                <Button variant="contained" color="secondary" size="large">
+                  Inscreva-se
+                </Button>
+              </Link>
 
               <Link href="#about" passHref>
                 <Button

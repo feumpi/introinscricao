@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Card, CardContent, Typography, Button } from "@mui/material";
 
 import {
@@ -55,17 +57,19 @@ const ScheduleCard = () => {
           <ScheduleList schedule={schedule} />
         </CardContent>
 
-        <Button
-          variant="contained"
-          color="secondary"
-          sx={{
-            width: "100%",
-            padding: "15px 0",
-            borderRadius: "0",
-          }}
-        >
-          Quero me inscrever
-        </Button>
+        <Link href="/enroll" passHref>
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{
+              width: "100%",
+              padding: "15px 0",
+              borderRadius: "0",
+            }}
+          >
+            Quero me inscrever
+          </Button>
+        </Link>
       </Card>
     </>
   );
