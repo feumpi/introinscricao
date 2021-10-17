@@ -12,11 +12,24 @@ import {
 import StepInstructions from "./StepInstructions";
 import StepLayout from "./StepLayout";
 
+import FormSectionTitle from "./FormSectionTitle";
+import AutocompleteField from "./AutocompleteField";
+import RadioField from "./RadioField";
+
 const RequirementsStep = () => {
   const [edital, setEdital] = useState(false);
   const [highSchool, setHighSchool] = useState(false);
   const [publicSchool, setPublicSchool] = useState(false);
   const [device, setDevice] = useState(false);
+
+  const [ref, setRef] = useState("");
+  const [inputRef, setInputRef] = useState("");
+
+  const [knowledgeLevel, setKnowledgeLevel] = useState("");
+
+  const refs = ["Instagram", "YouTube", "Twitch", "Por meio de um amigo"];
+
+  const knowledgeLevels = ["Não, nenhum", "Sim, um pouco", "Sim, bastante"];
 
   return (
     <>
@@ -29,7 +42,15 @@ const RequirementsStep = () => {
           />
         </Box>
 
-        <Box>
+        <Box
+          component="form"
+          autoComplete="off"
+          noValidate
+          sx={{
+            "& .MuiTextField-root": { marginY: 1, width: "100%" },
+          }}
+        >
+          <FormSectionTitle first>Requisitos</FormSectionTitle>
           <FormGroup>
             <FormControlLabel
               control={<Checkbox />}
@@ -59,6 +80,27 @@ const RequirementsStep = () => {
               onChange={(e) => setDevice(e.target.checked)}
             />
           </FormGroup>
+
+          <FormSectionTitle>Outros</FormSectionTitle>
+
+          <AutocompleteField
+            label="Como você ficou sabendo do introcomp?"
+            placeholder="Escolha uma opção da lista ou digite manualmente"
+            options={refs}
+            value={ref}
+            setValue={setRef}
+            inputValue={inputRef}
+            setInputValue={setInputRef}
+            free
+          />
+
+          <RadioField
+            label="Você tem algum conhecimento prévio em programação?"
+            name="programming-knowledge"
+            options={knowledgeLevels}
+            value={knowledgeLevel}
+            setValue={setKnowledgeLevel}
+          />
         </Box>
       </StepLayout>
     </>
