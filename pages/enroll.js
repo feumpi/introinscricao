@@ -9,6 +9,7 @@ const Enroll = () => {
     <>
       <Paper
         sx={{
+          height: "100%",
           bgcolor: theme.palette.primary.main,
           borderRadius: 0,
           paddingY: "100px",
