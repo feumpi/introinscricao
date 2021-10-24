@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 
 import { Box, Button } from "@mui/material";
 import StepLayout from "./StepLayout";
@@ -10,6 +9,8 @@ import StandardField from "./StandardField";
 import AutocompleteField from "./AutocompleteField";
 
 import validation from "../helpers/validation.js";
+
+import { getStates, getCities } from "../helpers/api";
 
 const StudentStep = ({ handleNext, handleBack, setData }) => {
   //Predefined options
@@ -35,16 +36,15 @@ const StudentStep = ({ handleNext, handleBack, setData }) => {
   const [cities, setCities] = useState([]);
 
   //On state input change
-  const handleState = (newState) => {
+  const handleState = async (newState) => {
     setState(newState);
 
     //If not empty (valid option selected), update city list
     if (newState) {
       const uf = newState.substr(0, 2);
-      axios.get(`/api/cities/${uf}`).then((res) => {
-        setCity("");
-        setCities(res.data);
-      });
+
+      const list = await getCities(uf);
+      setCities(list);
     }
     //Clear selected city and city options
     else {
@@ -55,9 +55,11 @@ const StudentStep = ({ handleNext, handleBack, setData }) => {
 
   //Fetch states from API on start
   useEffect(() => {
-    axios.get("/api/states").then((res) => {
-      setStates(res.data);
-    });
+    const fetchStates = async () => {
+      const list = await getStates();
+      setStates(list);
+    };
+    fetchStates();
   }, []);
 
   const handleSubmit = () => {
