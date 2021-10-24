@@ -1,17 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import {
-  Box,
-  Typography,
-  FormControl,
-  FormGroup,
-  TextField,
-  InputLabel,
-  Select,
-  MenuItem,
-  Autocomplete,
-} from "@mui/material";
+import { Box } from "@mui/material";
 import StepLayout from "./StepLayout";
 import StepInstructions from "./StepInstructions";
 import FormSectionTitle from "./FormSectionTitle";
