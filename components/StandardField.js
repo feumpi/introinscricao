@@ -16,22 +16,29 @@ const StandardField = ({
   value,
   setValue,
   number,
+  errorText,
 }) => {
   const HelperText = () => {
-    const { focused } = useFormControl() || {};
+    const { focused, touched, error } = useFormControl() || {};
 
     return useMemo(() => {
-      if (focused) {
+      if (error) {
+        return <FormHelperText>{errorText}</FormHelperText>;
+      } else if (focused) {
         return <FormHelperText>{helperText}</FormHelperText>;
       }
 
       return <></>;
-    }, [focused]);
+    }, [focused, error]);
   };
 
   return (
     <>
-      <FormControl variant="filled" sx={{ width: "100%", marginY: 1 }}>
+      <FormControl
+        variant="filled"
+        error={errorText}
+        sx={{ width: "100%", marginY: 1 }}
+      >
         <InputLabel>{label}</InputLabel>
         <FilledInput
           label={label}
