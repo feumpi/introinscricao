@@ -38,22 +38,17 @@ const StudentStep = () => {
   const [city, setCity] = useState("");
   const [inputCity, setInputCity] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
-  const [inputNeighborhood, setInputNeighborhood] = useState("");
 
   const genders = ["Masculino", "Feminino", "Outro", "Prefiro não dizer"];
 
   const [states, setStates] = useState([""]);
 
-  const [cities, setCities] = useState([""]);
+  const [cities, setCities] = useState([]);
 
-  const neighborhoods = ["Centro", "Maruípe", "Goiabeiras", "Jardim da Penha"];
+  const handleState = (newState) => {
+    setState(newState);
 
-  const handleState = (s) => {
-    setState(s);
-
-    const uf = s.substr(0, 2);
-
-    console.log(s, uf);
+    const uf = newState.substr(0, 2);
 
     axios.get(`/api/cities/${uf}`).then((res) => {
       setCities(res.data);
@@ -182,14 +177,11 @@ const StudentStep = () => {
             setInputValue={setInputCity}
           />
 
-          <AutocompleteField
+          <StandardField
             label="Bairro"
-            placeholder="Digite um bairro para pesquisar na lista"
-            options={neighborhoods}
+            placeholder="Ex: Goiabeiras"
             value={neighborhood}
             setValue={setNeighborhood}
-            inputValue={inputNeighborhood}
-            setInputValue={setInputNeighborhood}
           />
         </Box>
       </StepLayout>
