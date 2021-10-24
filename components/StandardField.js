@@ -9,6 +9,9 @@ import {
   useFormControl,
 } from "@mui/material";
 
+import InputMask from "react-input-mask";
+import { PinDropSharp } from "@mui/icons-material";
+
 const StandardField = ({
   label,
   placeholder,
@@ -17,9 +20,8 @@ const StandardField = ({
   setValue,
   number,
   errorText,
+  mask,
 }) => {
-  const { filled } = useFormControl() || {};
-
   const HelperText = () => {
     const { focused, error } = useFormControl() || {};
 
@@ -42,16 +44,36 @@ const StandardField = ({
         sx={{ width: "100%", marginY: 1 }}
       >
         <InputLabel>{label}</InputLabel>
-        <FilledInput
-          label={label}
-          placeholder={placeholder}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          inputProps={{
-            inputMode: number ? "numeric" : "text",
-            pattern: number ? "[0-9]*" : "",
-          }}
-        />
+
+        {mask ? (
+          <InputMask
+            mask={mask || ""}
+            maskPlaceholder={placeholder}
+            maskChar={""}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            label={label}
+            placeholder={placeholder}
+            inputProps={{
+              inputMode: number ? "numeric" : "text",
+              pattern: number ? "[0-9]*" : "",
+            }}
+          >
+            {(props) => <FilledInput {...props} />}
+          </InputMask>
+        ) : (
+          <FilledInput
+            label={label}
+            placeholder={placeholder}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            inputProps={{
+              inputMode: number ? "numeric" : "text",
+              pattern: number ? "[0-9]*" : "",
+            }}
+          />
+        )}
+
         <HelperText />
       </FormControl>
     </>

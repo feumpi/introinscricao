@@ -99,12 +99,14 @@ const StudentStep = () => {
             value={birthdate}
             setValue={setBirthdate}
             errorText={validation.birthdate(birthdate)}
+            mask="99/99/9999"
             number
           />
 
           <StandardField
             label="Seu CPF"
             placeholder="Ex: 447.791.810-03"
+            mask="999.999.999-99"
             helperText="Digite apenas os números, sem pontos ou traços."
             value={cpf}
             setValue={setCpf}
@@ -134,7 +136,8 @@ const StudentStep = () => {
 
           <StandardField
             label="Seu telefone"
-            placeholder="Ex: (27) 98876-5648"
+            placeholder="Ex: 27 98876-5648"
+            mask="99 99999-9999"
             helperText="Não esqueça de incluir o DDD! Digite apenas os números, sem parênteses ou traços."
             value={phone}
             setValue={setPhone}

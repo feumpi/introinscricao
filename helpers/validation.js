@@ -7,19 +7,17 @@ const email = (value) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "" : "Digite um e-mail válido";
 
 const birthdate = (value) =>
-  /^[0-9]{8}$/.test(value)
+  /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/.test(value)
     ? ""
-    : "Digite uma data válida (apenas números: 2 dígitos para o dia, 2 dígitos para o mês e 4 dígitos para o ano)";
+    : "Digite uma data válida.";
 
 const cpf = (value) =>
-  /^[0-9]{11}$/.test(value)
-    ? ""
-    : "Digite um CPF válido (apenas números, com 11 dígitos)";
+  /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/.test(value) ? "" : "Digite um CPF válido.";
 
 const phone = (value) =>
-  /^[0-9]{10,11}$/.test(value)
+  /(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})/.test(value)
     ? ""
-    : "Digite um telefone válido (2 dígitos do DDD + 8 ou 9 dígitos do número)";
+    : "Digite um telefone válido.";
 
 const validation = { name, email, birthdate, cpf, phone };
 
