@@ -20,6 +20,7 @@ const AutocompleteField = (props) => {
         renderInput={(params) => (
           <TextField
             {...params}
+            variant="filled"
             label={label}
             placeholder={placeholder}
             value={inputValue}

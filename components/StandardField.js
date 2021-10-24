@@ -2,7 +2,7 @@ import { useMemo } from "react";
 
 import {
   InputLabel,
-  OutlinedInput,
+  FilledInput,
   TextField,
   FormControl,
   FormHelperText,
@@ -31,9 +31,9 @@ const StandardField = ({
 
   return (
     <>
-      <FormControl sx={{ width: "100%", marginY: 1 }}>
+      <FormControl variant="filled" sx={{ width: "100%", marginY: 1 }}>
         <InputLabel>{label}</InputLabel>
-        <OutlinedInput
+        <FilledInput
           label={label}
           placeholder={placeholder}
           value={value}
