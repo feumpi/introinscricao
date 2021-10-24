@@ -13,6 +13,7 @@ import {
 import RequirementsStep from "./RequirementsStep";
 import StudentStep from "./StudentStep";
 import SchoolStep from "./SchoolStep";
+import SuccessStep from "./SuccessStep";
 
 const EnrollCard = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -49,7 +50,7 @@ const EnrollCard = () => {
   ];
 
   const StepComponent =
-    activeStep < steps.length ? steps[activeStep].component : () => <>acabou</>;
+    activeStep < steps.length ? steps[activeStep].component : SuccessStep;
 
   const stepProps =
     activeStep < steps.length
