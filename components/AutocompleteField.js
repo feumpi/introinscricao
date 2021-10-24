@@ -15,7 +15,7 @@ const AutocompleteField = (props) => {
     <>
       <Autocomplete
         options={options}
-        value={value}
+        value={value || null}
         onChange={(e, v) => setValue(v)}
         renderInput={(params) => (
           <TextField

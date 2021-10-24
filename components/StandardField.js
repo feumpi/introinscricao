@@ -40,7 +40,7 @@ const StandardField = ({
     <>
       <FormControl
         variant="filled"
-        error={value && errorText}
+        error={Boolean(value && errorText)}
         sx={{ width: "100%", marginY: 1 }}
       >
         <InputLabel>{label}</InputLabel>
@@ -48,7 +48,6 @@ const StandardField = ({
         {mask ? (
           <InputMask
             mask={mask || ""}
-            maskPlaceholder={placeholder}
             maskChar={""}
             value={value}
             onChange={(e) => setValue(e.target.value)}
