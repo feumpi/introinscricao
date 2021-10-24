@@ -199,7 +199,9 @@ const StudentStep = ({ handleNext, handleBack, setData }) => {
             setValue={setNeighborhood}
           />
 
-          <Box sx={{ display: "flex", justifyContent: "end" }}>
+          <Box
+            sx={{ display: "flex", justifyContent: "end", marginTop: "30px" }}
+          >
             <Button color="primary" onClick={handleBack}>
               Voltar
             </Button>

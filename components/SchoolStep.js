@@ -111,7 +111,9 @@ const SchoolStep = ({ handleBack, handleNext, setData }) => {
             setValue={setSchoolYear}
           />
 
-          <Box sx={{ display: "flex", justifyContent: "end" }}>
+          <Box
+            sx={{ display: "flex", justifyContent: "end", marginTop: "30px" }}
+          >
             <Button color="primary" onClick={handleBack}>
               Voltar
             </Button>
@@ -123,7 +125,7 @@ const SchoolStep = ({ handleBack, handleNext, setData }) => {
                 marginLeft: "20px",
               }}
             >
-              Finalizar
+              Concluir
             </Button>
           </Box>
         </Box>

@@ -9,6 +9,8 @@ const StepLayout = ({ children }) => {
     <>
       <Box
         sx={{
+          paddingX: "50px",
+          paddingY: "25px",
           display: "grid",
           gridTemplateColumns: "1fr 1fr 1fr 1fr",
           gridTemplateAreas: `

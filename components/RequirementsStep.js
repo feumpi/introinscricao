@@ -108,7 +108,9 @@ const RequirementsStep = ({ handleBack, handleNext, setData }) => {
             setValue={setKnowledgeLevel}
           />
 
-          <Box sx={{ display: "flex", justifyContent: "end" }}>
+          <Box
+            sx={{ display: "flex", justifyContent: "end", marginTop: "30px" }}
+          >
             <Button
               variant="contained"
               color="secondary"

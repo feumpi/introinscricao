@@ -78,9 +78,7 @@ const EnrollCard = () => {
             ))}
           </Stepper>
 
-          <Box sx={{ padding: "50px" }}>
-            <StepComponent {...stepProps} />
-          </Box>
+          <StepComponent {...stepProps} />
         </CardContent>
       </Card>
     </>
