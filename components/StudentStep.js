@@ -18,6 +18,8 @@ import FormSectionTitle from "./FormSectionTitle";
 import StandardField from "./StandardField";
 import AutocompleteField from "./AutocompleteField";
 
+import validation from "../helpers/validation.js";
+
 const StudentStep = () => {
   const [name, setName] = useState("");
 
@@ -76,6 +78,7 @@ const StudentStep = () => {
             helperText="Não omita nenhum nome composto ou sobrenome."
             value={name}
             setValue={setName}
+            errorText={validation.name(name)}
           />
 
           <AutocompleteField
@@ -95,6 +98,7 @@ const StudentStep = () => {
             helperText="Digite apenas os números, sem barras."
             value={birthdate}
             setValue={setBirthdate}
+            errorText={validation.birthdate(birthdate)}
             number
           />
 
@@ -104,6 +108,7 @@ const StudentStep = () => {
             helperText="Digite apenas os números, sem pontos ou traços."
             value={cpf}
             setValue={setCpf}
+            errorText={validation.cpf(cpf)}
             number
           />
 
@@ -113,6 +118,7 @@ const StudentStep = () => {
             helperText="Ou o nome do responsável legal equivalente na sua identidade."
             value={motherName}
             setValue={setMotherName}
+            errorText={validation.name(motherName)}
           />
 
           <FormSectionTitle>Dados de contato</FormSectionTitle>
@@ -123,6 +129,7 @@ const StudentStep = () => {
             helperText="Fique atento, vamos usá-lo para entrar em contato com você daqui em diante."
             value={email}
             setValue={setEmail}
+            errorText={validation.email(email)}
           />
 
           <StandardField
@@ -131,6 +138,7 @@ const StudentStep = () => {
             helperText="Não esqueça de incluir o DDD! Digite apenas os números, sem parênteses ou traços."
             value={phone}
             setValue={setPhone}
+            errorText={validation.phone(phone)}
             number
           />
 

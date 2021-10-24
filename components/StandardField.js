@@ -18,8 +18,10 @@ const StandardField = ({
   number,
   errorText,
 }) => {
+  const { filled } = useFormControl() || {};
+
   const HelperText = () => {
-    const { focused, touched, error } = useFormControl() || {};
+    const { focused, error } = useFormControl() || {};
 
     return useMemo(() => {
       if (error) {
@@ -36,7 +38,7 @@ const StandardField = ({
     <>
       <FormControl
         variant="filled"
-        error={errorText}
+        error={value && errorText}
         sx={{ width: "100%", marginY: 1 }}
       >
         <InputLabel>{label}</InputLabel>
