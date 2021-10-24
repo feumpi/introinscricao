@@ -12,44 +12,47 @@ import AutocompleteField from "./AutocompleteField";
 import validation from "../helpers/validation.js";
 
 const StudentStep = () => {
-  const [name, setName] = useState("");
+  //Predefined options
+  const genders = ["Masculino", "Feminino", "Outro", "Prefiro não dizer"];
 
+  //Input state
+  const [name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [inputGender, setInputGender] = useState("");
-
   const [birthdate, setBirthdate] = useState("");
   const [cpf, setCpf] = useState("");
   const [motherName, setMotherName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-
   const [state, setState] = useState("");
   const [inputState, setInputState] = useState("");
   const [city, setCity] = useState("");
   const [inputCity, setInputCity] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
 
-  const genders = ["Masculino", "Feminino", "Outro", "Prefiro não dizer"];
-
+  //Later fetched options state
   const [states, setStates] = useState([""]);
-
   const [cities, setCities] = useState([]);
 
+  //On state input change
   const handleState = (newState) => {
     setState(newState);
 
+    //If not empty (valid option selected), update city list
     if (newState) {
       const uf = newState.substr(0, 2);
-
       axios.get(`/api/cities/${uf}`).then((res) => {
         setCities(res.data);
       });
-    } else {
+    }
+    //Clear selected city and city options
+    else {
       setCity("");
       setCities([]);
     }
   };
 
+  //Fetch states from API on start
   useEffect(() => {
     axios.get("/api/states").then((res) => {
       setStates(res.data);
