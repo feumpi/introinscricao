@@ -23,7 +23,7 @@ const AutocompleteField = (props) => {
             label={label}
             placeholder={placeholder}
             value={inputValue}
-            onChange={(e, v) => setInputValue(v)}
+            onChange={(e) => setInputValue(e.target.value)}
             inputProps={{
               ...params.inputProps,
               autoComplete: "new-password",

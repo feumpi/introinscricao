@@ -37,7 +37,7 @@ const StandardField = ({
           label={label}
           placeholder={placeholder}
           value={value}
-          onChange={(e, v) => setValue(v)}
+          onChange={(e) => setValue(e.target.value)}
           inputProps={{
             inputMode: number ? "numeric" : "text",
             pattern: number ? "[0-9]*" : "",
