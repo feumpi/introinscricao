@@ -48,11 +48,16 @@ const StudentStep = () => {
   const handleState = (newState) => {
     setState(newState);
 
-    const uf = newState.substr(0, 2);
+    if (newState) {
+      const uf = newState.substr(0, 2);
 
-    axios.get(`/api/cities/${uf}`).then((res) => {
-      setCities(res.data);
-    });
+      axios.get(`/api/cities/${uf}`).then((res) => {
+        setCities(res.data);
+      });
+    } else {
+      setCity("");
+      setCities([]);
+    }
   };
 
   useEffect(() => {
