@@ -129,8 +129,8 @@ const StudentStep = () => {
             label="Seu telefone"
             placeholder="Ex: (27) 98876-5648"
             helperText="Não esqueça de incluir o DDD! Digite apenas os números, sem parênteses ou traços."
-            value={email}
-            setValue={setEmail}
+            value={phone}
+            setValue={setPhone}
             number
           />
 
