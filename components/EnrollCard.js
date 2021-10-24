@@ -25,10 +25,12 @@ const EnrollCard = () => {
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    window.scrollTo(0, 0);
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    window.scrollTo(0, 0);
   };
 
   const handleReset = () => {
