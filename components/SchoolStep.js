@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Box, Button } from "@mui/material";
 
@@ -9,6 +9,8 @@ import RadioField from "./RadioField";
 
 import StepLayout from "./StepLayout";
 import StepInstructions from "./StepInstructions";
+
+import { getStates, getCities } from "../helpers/api";
 
 const SchoolStep = ({ handleBack, handleNext, setData }) => {
   const [schoolState, setSchoolState] = useState("");
@@ -24,13 +26,8 @@ const SchoolStep = ({ handleBack, handleNext, setData }) => {
 
   const [schoolYear, setSchoolYear] = useState("");
 
-  const states = [
-    "ES - Espírito Santo",
-    "SP - São Paulo",
-    "RJ - Rio de Janeiro",
-  ];
-
-  const cities = ["Vitória", "Vila Velha", "Serra", "Cariacica"];
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
 
   const schoolNames = [
     "IFES campus Vitória",
@@ -41,10 +38,38 @@ const SchoolStep = ({ handleBack, handleNext, setData }) => {
   const schoolTypes = ["Estadual", "Federal"];
   const schoolYears = ["1º ano", "2º ano", "3º ano", "4º ano"];
 
+  //On state input change
+  const handleSchoolState = async (newState) => {
+    setSchoolState(newState);
+
+    //If not empty (valid option selected), update city list
+    if (newState) {
+      const uf = newState.substr(0, 2);
+
+      const list = await getCities(uf);
+      setCities(list);
+      setSchoolCity("");
+    }
+    //Clear selected city and city options
+    else {
+      setSchoolCity("");
+      setCities([]);
+    }
+  };
+
   const handleSubmit = () => {
     setData({ schoolState, schoolCity, schoolName, schoolType, schoolYear });
     handleNext();
   };
+
+  //Fetch states from API on start
+  useEffect(() => {
+    const fetchStates = async () => {
+      const list = await getStates();
+      setStates(list);
+    };
+    fetchStates();
+  }, []);
 
   return (
     <>
@@ -69,7 +94,7 @@ const SchoolStep = ({ handleBack, handleNext, setData }) => {
             placeholder="Digite um estado para pesquisar na lista"
             options={states}
             value={schoolState}
-            setValue={setSchoolState}
+            setValue={handleSchoolState}
             inputValue={inputSchoolState}
             setInputValue={setInputSchoolState}
           />

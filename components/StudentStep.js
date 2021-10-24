@@ -45,6 +45,7 @@ const StudentStep = ({ handleNext, handleBack, setData }) => {
 
       const list = await getCities(uf);
       setCities(list);
+      setCity("");
     }
     //Clear selected city and city options
     else {
