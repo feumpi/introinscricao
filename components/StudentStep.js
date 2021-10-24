@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import {
   Box,
@@ -41,15 +42,29 @@ const StudentStep = () => {
 
   const genders = ["Masculino", "Feminino", "Outro", "Prefiro não dizer"];
 
-  const states = [
-    "ES - Espírito Santo",
-    "SP - São Paulo",
-    "RJ - Rio de Janeiro",
-  ];
+  const [states, setStates] = useState([""]);
 
-  const cities = ["Vitória", "Vila Velha", "Serra", "Cariacica"];
+  const [cities, setCities] = useState([""]);
 
   const neighborhoods = ["Centro", "Maruípe", "Goiabeiras", "Jardim da Penha"];
+
+  const handleState = (s) => {
+    setState(s);
+
+    const uf = s.substr(0, 2);
+
+    console.log(s, uf);
+
+    axios.get(`/api/cities/${uf}`).then((res) => {
+      setCities(res.data);
+    });
+  };
+
+  useEffect(() => {
+    axios.get("/api/states").then((res) => {
+      setStates(res.data);
+    });
+  }, []);
 
   return (
     <>
@@ -152,7 +167,7 @@ const StudentStep = () => {
             placeholder="Digite um estado para pesquisar na lista"
             options={states}
             value={state}
-            setValue={setState}
+            setValue={handleState}
             inputValue={inputState}
             setInputValue={setInputState}
           />
