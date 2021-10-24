@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   Box,
@@ -17,6 +17,11 @@ import SchoolStep from "./SchoolStep";
 const EnrollCard = () => {
   const [activeStep, setActiveStep] = useState(0);
 
+  //Global state
+  const [requirementsData, setRequirementsData] = useState(null);
+  const [studentData, setStudentData] = useState(null);
+  const [schoolData, setSchoolData] = useState(null);
+
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -30,12 +35,36 @@ const EnrollCard = () => {
   };
 
   const steps = [
-    { label: "Requisitos", component: RequirementsStep },
-    { label: "Sobre você", component: StudentStep },
-    { label: "Sobre sua escola", component: SchoolStep },
+    {
+      label: "Requisitos",
+      component: RequirementsStep,
+      setData: setRequirementsData,
+    },
+    { label: "Sobre você", component: StudentStep, setData: setStudentData },
+    {
+      label: "Sobre sua escola",
+      component: SchoolStep,
+      setData: setSchoolData,
+    },
   ];
 
-  const StepComponent = steps[activeStep].component;
+  const StepComponent =
+    activeStep < steps.length ? steps[activeStep].component : () => <>acabou</>;
+
+  const stepProps =
+    activeStep < steps.length
+      ? {
+          handleNext,
+          handleBack,
+          setData: steps[activeStep].setData,
+        }
+      : {};
+
+  useEffect(() => {
+    if (activeStep >= steps.length) {
+      console.log(requirementsData, studentData, schoolData);
+    }
+  }, [activeStep, steps.length, requirementsData, studentData, schoolData]);
 
   return (
     <>
@@ -50,28 +79,7 @@ const EnrollCard = () => {
           </Stepper>
 
           <Box sx={{ padding: "50px" }}>
-            <StepComponent />
-          </Box>
-
-          <Box sx={{ display: "flex", justifyContent: "end" }}>
-            <Button
-              color="primary"
-              onClick={handleBack}
-              disabled={activeStep <= 0}
-            >
-              Voltar
-            </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={handleNext}
-              sx={{
-                marginLeft: "20px",
-              }}
-              disabled={activeStep >= steps.length - 1}
-            >
-              Continuar
-            </Button>
+            <StepComponent {...stepProps} />
           </Box>
         </CardContent>
       </Card>

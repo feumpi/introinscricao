@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 import FormSectionTitle from "./FormSectionTitle";
 import StandardField from "./StandardField";
@@ -10,7 +10,7 @@ import RadioField from "./RadioField";
 import StepLayout from "./StepLayout";
 import StepInstructions from "./StepInstructions";
 
-const SchoolStep = () => {
+const SchoolStep = ({ handleBack, handleNext, setData }) => {
   const [schoolState, setSchoolState] = useState("");
   const [inputSchoolState, setInputSchoolState] = useState("");
 
@@ -40,6 +40,11 @@ const SchoolStep = () => {
 
   const schoolTypes = ["Estadual", "Federal"];
   const schoolYears = ["1º ano", "2º ano", "3º ano", "4º ano"];
+
+  const handleSubmit = () => {
+    setData({ schoolState, schoolCity, schoolName, schoolType, schoolYear });
+    handleNext();
+  };
 
   return (
     <>
@@ -105,6 +110,22 @@ const SchoolStep = () => {
             value={schoolYear}
             setValue={setSchoolYear}
           />
+
+          <Box sx={{ display: "flex", justifyContent: "end" }}>
+            <Button color="primary" onClick={handleBack}>
+              Voltar
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleSubmit}
+              sx={{
+                marginLeft: "20px",
+              }}
+            >
+              Finalizar
+            </Button>
+          </Box>
         </Box>
       </StepLayout>
     </>

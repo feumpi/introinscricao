@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import {
   Box,
+  Button,
   Typography,
   FormGroup,
   FormControlLabel,
@@ -16,7 +17,7 @@ import FormSectionTitle from "./FormSectionTitle";
 import AutocompleteField from "./AutocompleteField";
 import RadioField from "./RadioField";
 
-const RequirementsStep = () => {
+const RequirementsStep = ({ handleBack, handleNext, setData }) => {
   const [edital, setEdital] = useState(false);
   const [highSchool, setHighSchool] = useState(false);
   const [publicSchool, setPublicSchool] = useState(false);
@@ -30,6 +31,11 @@ const RequirementsStep = () => {
   const refs = ["Instagram", "YouTube", "Twitch", "Por meio de um amigo"];
 
   const knowledgeLevels = ["Não, nenhum", "Sim, um pouco", "Sim, bastante"];
+
+  const handleSubmit = () => {
+    setData({ edital, highSchool, publicSchool, device, ref, knowledgeLevel });
+    handleNext();
+  };
 
   return (
     <>
@@ -101,6 +107,19 @@ const RequirementsStep = () => {
             value={knowledgeLevel}
             setValue={setKnowledgeLevel}
           />
+
+          <Box sx={{ display: "flex", justifyContent: "end" }}>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleSubmit}
+              sx={{
+                marginLeft: "20px",
+              }}
+            >
+              Continuar
+            </Button>
+          </Box>
         </Box>
       </StepLayout>
     </>

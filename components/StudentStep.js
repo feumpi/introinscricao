@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import StepLayout from "./StepLayout";
 import StepInstructions from "./StepInstructions";
 import FormSectionTitle from "./FormSectionTitle";
@@ -11,7 +11,7 @@ import AutocompleteField from "./AutocompleteField";
 
 import validation from "../helpers/validation.js";
 
-const StudentStep = () => {
+const StudentStep = ({ handleNext, handleBack, setData }) => {
   //Predefined options
   const genders = ["Masculino", "Feminino", "Outro", "Prefiro não dizer"];
 
@@ -42,6 +42,7 @@ const StudentStep = () => {
     if (newState) {
       const uf = newState.substr(0, 2);
       axios.get(`/api/cities/${uf}`).then((res) => {
+        setCity("");
         setCities(res.data);
       });
     }
@@ -58,6 +59,22 @@ const StudentStep = () => {
       setStates(res.data);
     });
   }, []);
+
+  const handleSubmit = () => {
+    setData({
+      name,
+      gender,
+      birthdate,
+      cpf,
+      motherName,
+      email,
+      phone,
+      state,
+      city,
+      neighborhood,
+    });
+    handleNext();
+  };
 
   return (
     <>
@@ -181,6 +198,22 @@ const StudentStep = () => {
             value={neighborhood}
             setValue={setNeighborhood}
           />
+
+          <Box sx={{ display: "flex", justifyContent: "end" }}>
+            <Button color="primary" onClick={handleBack}>
+              Voltar
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleSubmit}
+              sx={{
+                marginLeft: "20px",
+              }}
+            >
+              Continuar
+            </Button>
+          </Box>
         </Box>
       </StepLayout>
     </>

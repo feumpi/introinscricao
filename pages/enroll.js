@@ -5,6 +5,7 @@ import EnrollCard from "../components/EnrollCard";
 
 const Enroll = () => {
   const theme = useTheme();
+
   return (
     <>
       <Paper
