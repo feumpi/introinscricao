@@ -1,3 +1,4 @@
+
 import { Paper, Container, Card } from "@mui/material";
 import { useTheme } from "@emotion/react";
 
@@ -22,6 +23,7 @@ const Enroll = () => {
       </Paper>
     </>
   );
+
 };
 
 export default Enroll;
