@@ -25,7 +25,7 @@ const SchoolStep = ({ handleBack, handleNext, setData }) => {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
 
-  const schoolTypes = ["Estadual", "Federal"];
+  const schoolTypes = ["Estadual", "Federal", "Municipal"];
   const schoolYears = ["1º ano", "2º ano", "3º ano", "4º ano"];
 
   //On state input change
