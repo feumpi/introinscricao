@@ -18,22 +18,12 @@ const SchoolStep = ({ handleBack, handleNext, setData }) => {
 
   const [schoolCity, setSchoolCity] = useState("");
   const [inputSchoolCity, setInputSchoolCity] = useState("");
-
   const [schoolName, setSchoolName] = useState("");
-  const [inputSchoolName, setInputSchoolName] = useState("");
-
   const [schoolType, setSchoolType] = useState("");
-
   const [schoolYear, setSchoolYear] = useState("");
 
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
-
-  const schoolNames = [
-    "IFES campus Vitória",
-    "IFES campus Serra",
-    "Colégio Estadual",
-  ];
 
   const schoolTypes = ["Estadual", "Federal"];
   const schoolYears = ["1º ano", "2º ano", "3º ano", "4º ano"];
@@ -109,15 +99,12 @@ const SchoolStep = ({ handleBack, handleNext, setData }) => {
             setInputValue={setInputSchoolCity}
           />
 
-          <AutocompleteField
+          <StandardField
             label="Nome da sua escola"
-            placeholder="Escolha uma opção da lista ou digite manualmente"
-            options={schoolNames}
+            placeholder="Ex: Instituto Federal do Espírito Santo"
+            helperText="Digite o nome completo da sua escola"
             value={schoolName}
             setValue={setSchoolName}
-            inputValue={inputSchoolName}
-            setInputValue={setInputSchoolName}
-            free
           />
 
           <RadioField
