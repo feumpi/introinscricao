@@ -101,17 +101,17 @@ const StudentStep = ({ handleNext, handleBack, setData }) => {
           <FormSectionTitle first>Dados básicos</FormSectionTitle>
 
           <StandardField
-            label="Seu nome completo"
-            placeholder="Ex: João da Silva Pereira"
-            helperText="Não omita nenhum nome composto ou sobrenome."
+            label="Nome completo"
+            placeholder="Ex: João Carlos da Silva Pereira"
+            helperText="Digite seu primeiro nome (completo, se for composto) e todos os seus sobrenomes, como registrado nos seus documentos."
             value={name}
             setValue={setName}
             errorText={validation.name(name)}
           />
 
           <AutocompleteField
-            label="Seu gênero"
-            placeholder="Escolha uma opção da lista ou digite o que preferir"
+            label="Gênero"
+            placeholder="Escolha uma opção da lista, deixe em branco ou digite o que preferir"
             options={genders}
             value={gender}
             setValue={setGender}
@@ -121,9 +121,9 @@ const StudentStep = ({ handleNext, handleBack, setData }) => {
           />
 
           <StandardField
-            label="Sua data de nascimento"
+            label="Data de nascimento"
             placeholder="Ex: 08/05/2003"
-            helperText="Digite apenas os números, sem barras."
+            helperText="Digite apenas números (2 dígitos para o dia, 2 dígitos para o mês e 4 dígitos para o ano)"
             value={birthdate}
             setValue={setBirthdate}
             errorText={validation.birthdate(birthdate)}
@@ -132,10 +132,10 @@ const StudentStep = ({ handleNext, handleBack, setData }) => {
           />
 
           <StandardField
-            label="Seu CPF"
+            label="CPF"
             placeholder="Ex: 447.791.810-03"
             mask="999.999.999-99"
-            helperText="Digite apenas os números, sem pontos ou traços."
+            helperText="Digite apenas os números do seu CPF"
             value={cpf}
             setValue={setCpf}
             errorText={validation.cpf(cpf)}
@@ -145,7 +145,7 @@ const StudentStep = ({ handleNext, handleBack, setData }) => {
           <StandardField
             label="Nome completo da sua mãe"
             placeholder="Ex: Maria da Silva Pereira"
-            helperText="Ou o nome do responsável legal equivalente na sua identidade."
+            helperText="Digite o primeiro nome (completo, se for composto) e todos os sobrenomes da sua mãe, como registrado nos seus documentos."
             value={motherName}
             setValue={setMotherName}
             errorText={validation.name(motherName)}
@@ -156,17 +156,17 @@ const StudentStep = ({ handleNext, handleBack, setData }) => {
           <StandardField
             label="E-mail"
             placeholder="Ex: joao.silva@gmail.com"
-            helperText="Fique atento, vamos usá-lo para entrar em contato com você daqui em diante."
+            helperText="É importante que seja um e-mail válido, vamos usá-lo para entrar em contato com você daqui pra frente."
             value={email}
             setValue={setEmail}
             errorText={validation.email(email)}
           />
 
           <StandardField
-            label="Seu telefone"
+            label="Telefone"
             placeholder="Ex: 27 98876-5648"
             mask="99 99999-9999"
-            helperText="Não esqueça de incluir o DDD! Digite apenas os números, sem parênteses ou traços."
+            helperText="Digite o seu telefone para contato (apenas números, incluindo o DDD)"
             value={phone}
             setValue={setPhone}
             errorText={validation.phone(phone)}
@@ -198,6 +198,7 @@ const StudentStep = ({ handleNext, handleBack, setData }) => {
           <StandardField
             label="Bairro"
             placeholder="Ex: Goiabeiras"
+            helperText="Digite o nome do bairro onde você mora."
             value={neighborhood}
             setValue={setNeighborhood}
           />
